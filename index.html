@@ -5,50 +5,50 @@
     <title>Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome</title>
     <meta
       name="title"
-      content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome"
+      content="Chapa 1 - Tessituras Coletivas: Diálogo, Escuta e Transformação"
     />
     <meta
       name="description"
-      content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira"
+      content="Apoie a Chapa 1 para as eleições do ICA"
     />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://cristiantela.github.io/lula2turno/"
+      content="https://martche-lab.github.io/tessisturas1/"
     />
     <meta
       property="og:title"
-      content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome"
+      content="Chapa 1 - Tessituras Coletivas: Diálogo, Escuta e Transformação"
     />
     <meta
       property="og:description"
-      content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira"
+      content="Apoie a Chapa 1 para as eleições do ICA"
     />
     <meta
       property="og:image"
       itemprop="image"
-      content="https://cristiantela.github.io/lula2turno/metadata.png"
+      content="https://martche-lab.github.io/tessisturas1/metadata.png"
     />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
-      content="https://cristiantela.github.io/lula2turno/"
+      content="https://martche-lab.github.io/tessisturas1/"
     />
     <meta
       property="twitter:title"
-      content="Lula 2º Turno — Gerar flyer de apoio ao Lula com seu nome"
+      content="Chapa 1 - Tessituras Coletivas: Diálogo, Escuta e Transformação"
     />
     <meta
       property="twitter:description"
-      content="Gere seu flyer personalizado com seu nome de apoio ao Lula para o segundo turno das eleições brasileira"
+      content="Apoie a Chapa 1 para as eleições do ICA"
     />
     <meta
       property="twitter:image"
-      content="https://cristiantela.github.io/lula2turno/metadata.png"
+      content="https://martche-lab.github.io/tessisturas1/metadata.png"
     />
 
     <meta charset="UTF-8" />
@@ -200,51 +200,8 @@
 
       <canvas width="1080" height="1080"></canvas>
 
-      <footer>
-        <a href="https://www.instagram.com/cristianfrontend/" target="_blank">
-          <img src="img/cristiantela-profile.png" class="profile" />
-          <img src="img/instagram-logo.svg" />
-          <span><b>cristian</b>frontend</span>
-        </a>
-
-        <a href="https://github.com/cristiantela/lula2turno" target="_blank">
-          <img src="img/github-logo.svg" />
-          <span>cristiantela/lula2turno</span>
-        </a>
-      </footer>
-
-      <smartphone>
-        Olá, meu nome é Matheus Cristian, e estou precisando de um celular para
-        trabalhar, pois o meu celular quebrou. Doe o valor que puder para me
-        ajudar através da chave pix
-        <input class="email" value="mathues@email.com" />
-        <img
-          data-copy="mathues@email.com"
-          data-done="copy sucessful"
-          class="copy"
-          src="img/copy.svg"
-          alt="Copiar"
-          title="Copiar"
-        />
-        ou por
-        <a href="https://nubank.com.br/pagar/199pu6/OH6ITDqcpU" target="_blank">
-          este link do Nubank
-          <img src="img/nubank-logo.svg" class="nubank" />
-        </a>
-      </smartphone>
-    </div>
-
+     
     <script>
-      document.querySelector(".copy").addEventListener("click", () => {
-        const copyText = document.querySelector(".email");
-        copyText.value = "mathues@email.com";
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); // For mobile devices
-
-        navigator.clipboard.writeText(copyText.value);
-
-        alert("Chave pix copiada!");
-      });
 
       const canvas = document.querySelector("canvas");
       const context = canvas.getContext("2d");

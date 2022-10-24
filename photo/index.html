@@ -29,7 +29,7 @@
     <meta
       property="og:image"
       itemprop="image"
-      content="https://martche-lab.github.io/tessisturas1/metadata.png"
+      content="hhttps://martche-lab.github.io/tessisturas1/photo/metadata.png"
     />
 
     <!-- Twitter -->
@@ -48,7 +48,7 @@
     />
     <meta
       property="twitter:image"
-      content="https://martche-lab.github.io/tessisturas1/metadata.png"
+      content="https://martche-lab.github.io/tessisturas1/photo/metadata.png"
     />
 
     <meta charset="UTF-8" />
@@ -190,18 +190,28 @@
 
       gtag("config", "G-XG904CQWTP");
     </script>
-    <script src="js/clipboardtext.js"></script>
+    <script src="../js/clipboardtext.js"></script>
   </head>
   <body>
     <div class="container">
-      <input type="text" />
+      <input type="file" />
 
       <button>Salvar Imagem</button>
 
       <canvas width="1080" height="1080"></canvas>
 
-     
+
     <script>
+      document.querySelector(".copy").addEventListener("click", () => {
+        const copyText = document.querySelector(".email");
+        copyText.value = "mathues@email.com";
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        navigator.clipboard.writeText(copyText.value);
+
+        alert("Chave pix copiada!");
+      });
 
       const canvas = document.querySelector("canvas");
       const context = canvas.getContext("2d");
@@ -370,16 +380,13 @@
         "Isabel",
       ];
 
-      document.querySelector("input").value =
-        names[Math.floor(Math.random() * names.length)];
+      // document.querySelector("input").value =
+      //   names[Math.floor(Math.random() * names.length)];
 
       document.querySelector("button").addEventListener("click", () => {
         const a = document.createElement("a");
         a.setAttribute("href", canvas.toDataURL("image/png"));
-        a.setAttribute(
-          "download",
-          document.querySelector("input").value.trim()
-        );
+        a.setAttribute("download", "image");
         a.click();
       });
 
@@ -419,9 +426,9 @@
 
       baseImage.addEventListener("load", () => {
         function draw() {
-          context.clearRect(0, 0, canvas.width, canvas.height);
           context.drawImage(baseImage, 0, 0);
 
+          /*
           context.save();
 
           context.translate(540, 348);
@@ -433,7 +440,7 @@
             document.querySelector("input").value.trim()
           ).width;
 
-          context.fillStyle = "#EF3849";
+          context.fillStyle = "#1ABC4C";
           roundRect(
             context,
             -width / 2 - 25,
@@ -451,11 +458,62 @@
           );
 
           context.restore();
+          */
 
-          setTimeout(draw, 100);
+          // setTimeout(draw, 100);
+
+          document
+            .querySelector('input[type="file"]')
+            .addEventListener("change", (event) => {
+              var file = event.srcElement.files[0];
+              var reader = new FileReader();
+
+              // context.drawImage();
+
+              reader.addEventListener(
+                "load",
+                function () {
+                  console.log(reader);
+                  const photo = new Image();
+                  photo.src = reader.result;
+                  photo.addEventListener("load", () => {
+                    const oldWidth = photo.width;
+                    photo.width = 1080;
+                    photo.height = (1080 / oldWidth) * photo.height;
+
+                    if (photo.height < 1080) {
+                      const oldHeight = photo.height;
+                      photo.height = 1080;
+                      photo.width = (1080 / oldHeight) * photo.width;
+                    }
+                    console.log(photo.height);
+                    context.drawImage(
+                      photo,
+                      0 - (photo.width - 1080) / 2,
+                      0 - (photo.height - 1080) / 2,
+                      photo.width,
+                      photo.height
+                    );
+                    draw();
+                  });
+                },
+                false
+              );
+
+              if (file) {
+                reader.readAsDataURL(file);
+              }
+            });
         }
 
         draw();
+
+        const image = new Image();
+        image.src = './base-2.png';
+        image.addEventListener('load', () => {
+          context.drawImage(image, 0, 0);
+          draw();
+        });
       });
     </script>
   </body>

@@ -202,16 +202,6 @@
 
 
     <script>
-      document.querySelector(".copy").addEventListener("click", () => {
-        const copyText = document.querySelector(".email");
-        copyText.value = "mathues@email.com";
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); // For mobile devices
-
-        navigator.clipboard.writeText(copyText.value);
-
-        alert("Chave pix copiada!");
-      });
 
       const canvas = document.querySelector("canvas");
       const context = canvas.getContext("2d");
